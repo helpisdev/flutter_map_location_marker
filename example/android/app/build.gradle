@@ -26,21 +26,33 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 33
-    // compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    buildToolsVersion = "34.0.0"
+    compileSdk 34
+    ndkVersion "26.1.10909125"
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17.toString()
+        targetCompatibility JavaVersion.VERSION_17.toString()
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "17"
+        freeCompilerArgs = ['-Xjvm-default=all-compatibility']
+    }
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    java {
+        toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+        }
     }
 
     sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        main.java.srcDirs += "src/main/java"
+        main.kotlin.srcDirs += "src/main/kotlin"
     }
 
     lintOptions {
