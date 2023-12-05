@@ -5,7 +5,7 @@
 [![license](https://img.shields.io/github/license/tlserver/flutter_map_location_marker)](https://github.com/tlserver/flutter_map_location_marker/blob/master/LICENSE)
 
 `flutter_map_location_marker` is a [flutter_map](https://pub.dev/packages/flutter_map) plugin for
-displaying device's current location on a map. It provides a simple and flexible way to add a 
+displaying device's current location on a map. It provides a simple and flexible way to add a
 customizable location marker to your map.
 <br>
 <img src="https://github.com/tlserver/flutter_map_location_marker/raw/main/assets/interface.jpg" alt="Interface preview" width="400">
@@ -34,60 +34,60 @@ about `flutter_map_location_marker`, get help and help others in the #plugins ch
 
 ## Usage
 
-Add `flutter_map_location_marker` to your `pubspec.yaml`:
+1. Add `flutter_map_location_marker` to your `pubspec.yaml`:
 
-```yaml
-dependencies:
-  flutter_map_location_marker: any # or latest verion
-```
+   ```yaml
+   dependencies:
+     flutter_map_location_marker: any # or latest verion
+   ```
 
-Add permission by following the instructions
-from the [geolocator](https://pub.dev/packages/geolocator#usage) package.
+2. Add permission by following the instructions from
+   the [geolocator](https://pub.dev/packages/geolocator#usage) package.
 
-Add the layer widget into `FlutterMap`:
+3. Add the layer widget into `FlutterMap`:
 
-```dart
-Widget build(BuildContext context) {
-  return FlutterMap(
-    children: [
-      TileLayer(
-        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-        maxZoom: 19,
-      ),
-      CurrentLocationLayer(), // <-- add layer here
-    ],
-  );
-}
-```
+   ```dart
+   Widget build(BuildContext context) {
+     return FlutterMap(
+       children: [
+         TileLayer(
+           urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+           maxZoom: 19,
+         ),
+         CurrentLocationLayer(), // <-- add layer here
+       ],
+     );
+   }
+   ```
 
-Discover more parameters
-in [CurrentLocationLayer](https://pub.dev/documentation/flutter_map_location_marker/latest/flutter_map_location_marker/CurrentLocationLayer-class.html)
-.
+4. Discover more parameters
+   in [CurrentLocationLayer](https://pub.dev/documentation/flutter_map_location_marker/latest/flutter_map_location_marker/CurrentLocationLayer-class.html)
+   .
 
-```dart
-Widget build() {
-  return CurrentLocationLayer(
-    followOnLocationUpdate: FollowOnLocationUpdate.always,
-    turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
-    style: LocationMarkerStyle(
-      marker: const DefaultLocationMarker(
-        child: Icon(
-          Icons.navigation,
-          color: Colors.white,
-        ),
-      ),
-      markerSize: const Size(40, 40),
-      markerDirection: MarkerDirection.heading,
-    ),
-  );
-}
-```
+   ```dart
+   Widget build() {
+     return CurrentLocationLayer(
+       followOnLocationUpdate: FollowOnLocationUpdate.always,
+       turnOnHeadingUpdate: TurnOnHeadingUpdate.never,
+       style: LocationMarkerStyle(
+         marker: const DefaultLocationMarker(
+           child: Icon(
+             Icons.navigation,
+             color: Colors.white,
+           ),
+         ),
+         markerSize: const Size(40, 40),
+         markerDirection: MarkerDirection.heading,
+       ),
+     );
+   }
+   ```
 
-Consider using either 
-the [AnimatedLocationMarkerLayer](https://pub.dev/documentation/flutter_map_location_marker/latest/flutter_map_location_marker/AnimatedLocationMarkerLayer-class.html)
-or
-the [LocationMarkerLayer](https://pub.dev/documentation/flutter_map_location_marker/latest/flutter_map_location_marker/LocationMarkerLayer-class.html)
-if multiple location markers need to be displayed.
+5. Consider using either
+   the [AnimatedLocationMarkerLayer](https://pub.dev/documentation/flutter_map_location_marker/latest/flutter_map_location_marker/AnimatedLocationMarkerLayer-class.html)
+   or
+   the [LocationMarkerLayer](https://pub.dev/documentation/flutter_map_location_marker/latest/flutter_map_location_marker/LocationMarkerLayer-class.html)
+   if multiple location markers need to be displayed.
 
 ## Examples
 
@@ -126,7 +126,7 @@ or their origin streams from a CurrentLocationLayer widget?
 *A*: No, you should not get these streams from a CurrentLocationLayer widget. Instead, create you
 own streams with the the same types and also pass it to all the widgets which need them.
 CurrentLocationLayer doesn't own the streams; it just listens to them. You can use any
-implementation of position and heading streams, as long as the stream types are Stream<Position> and
-Stream<double>, respectively. You may
+implementation of position and heading streams, as long as the stream types are
+Stream&lt;Position&gt; and Stream&lt;double&gt;, respectively. You may
 see [this example](https://github.com/tlserver/flutter_map_location_marker/blob/master/example/lib/page/default_stream_example.dart)
 to know about how to do this.

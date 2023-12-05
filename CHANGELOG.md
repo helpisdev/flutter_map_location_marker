@@ -1,3 +1,12 @@
+## [8.0.2] - Fix Bug
+
+* Fix LateInitializationError when requesting permission (#92)
+
+## [8.0.1] - Fix Bug
+
+* Fix performance issue (#91)
+* Update dependencies
+
 ## [8.0.0] - Migrate to Flutter Map v6
 
 * Migrate to `flutter_map` v6
@@ -13,7 +22,7 @@ Thank to dpatrongomez
 
 ## [7.0.4] - Improve Behavior
 
-* add parameter `requestPermissionCallback` to [LocationMarkerDataStreamFactory.defaultPositionStreamSource()](https://pub.dev/documentation/flutter_map_location_marker/latest/flutter_map_location_marker/LocationMarkerDataStreamFactory/defaultPositionStreamSource.html) (#78)
+* Add parameter `requestPermissionCallback` to [LocationMarkerDataStreamFactory.defaultPositionStreamSource()](https://pub.dev/documentation/flutter_map_location_marker/latest/flutter_map_location_marker/LocationMarkerDataStreamFactory/defaultPositionStreamSource.html) (#78)
 * Fix indicators
 
 Thank to SalihCanBinboga
@@ -196,10 +205,10 @@ Thank to Simone Masoero
 ## [3.0.0] - Expose Position and Heading Streams
 
 * __BRAKING CHANGE__ Remove deprecated code
-    * [LocationMarkerPlugin()](https://pub.dev/documentation/flutter_map_location_marker/3.0.0/flutter_map_location_marker/LocationMarkerPlugin/LocationMarkerPlugin.html)
+  * [LocationMarkerPlugin()](https://pub.dev/documentation/flutter_map_location_marker/3.0.0/flutter_map_location_marker/LocationMarkerPlugin/LocationMarkerPlugin.html)
       do not accept `locationSettings` parameters anymore. If this settings need to be changed,
       see [this example](https://github.com/tlserver/flutter_map_location_marker/blob/master/example/lib/page/geolocator_settings_example.dart)
-    * [LocationMarkerLayerOptions()](https://pub.dev/documentation/flutter_map_location_marker/3.0.0/flutter_map_location_marker/LocationMarkerLayerOptions/LocationMarkerLayerOptions.html)
+  * [LocationMarkerLayerOptions()](https://pub.dev/documentation/flutter_map_location_marker/3.0.0/flutter_map_location_marker/LocationMarkerLayerOptions/LocationMarkerLayerOptions.html)
       now accept `positionStream` and `headingStream` parameters so the application have more
       control of these streams
 
@@ -238,7 +247,7 @@ Thank to Ondřej Synáček
 
 * Migrate to null-safety
 * __BRAKING CHANGE__ Remove deprecated code
-    * [LocationMarkerPlugin()](https://pub.dev/documentation/flutter_map_location_marker/1.0.0/flutter_map_location_marker/LocationMarkerPlugin/LocationMarkerPlugin.html)
+  * [LocationMarkerPlugin()](https://pub.dev/documentation/flutter_map_location_marker/1.0.0/flutter_map_location_marker/LocationMarkerPlugin/LocationMarkerPlugin.html)
       do not accept `geolocationPermissions` parameter anymore
 
 ## [0.0.9] - Improve User Experience
